@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Milo J - Fabrizio Perrone</title>
+  <link rel="stylesheet" href="styles.css"/>
+</head>
+<body>
+  <header class="navbar">
+    <h1>🎤 Milo J - Fabrizio Perrone</h1>
+    <nav>
+      <a href="#biografia">Biografía</a>
+      <a href="#videos">Videografía</a>
+      <a href="https://www.instagram.com/milo.j/" target="_blank">Instagram</a>
+    </nav>
+  </header>
+
+  <section class="hero">
+    <div class="hero-content">
+      <h2>Milo J</h2>
+      <p>El artista del momento🔥</p>
+    </div>
+  </section>
+
+  <section id="biografia" class="biografia">
+    <h2>¿Quién es Milo J?</h2>
+    <p>
+      Milo J es un joven artista argentino que ha ganado reconocimiento internacional por su estilo auténtico y emocional.
+      Con letras intensas y una voz única, es parte clave del nuevo movimiento urbano latino.
+    </p>
+    <img src="milo-foto.jpg" alt="Milo J"/>
+  </section>
+
+<section id="videos" class="videos">
+  <h2>🎬 Videografía Destacada</h2>
+  <div class="slider">
+    <img src="video1.jpg" alt="Video 1" class="slide active">
+    <img src="video2.jpg" alt="Video 2" class="slide">
+    <img src="video3.jpg" alt="Video 3" class="slide">
+    <button class="prev">&#10094;</button>
+    <button class="next">&#10095;</button>
+  </div>
+</section>
+
+<style>
+  .slider {
+    position: relative;
+    margin: auto;
+    overflow: hidden;
+    max-width: 100%;
+    text-align: center; 
+  }
+
+  .slide {
+    display: none;
+    max-width: 100%;
+    height: auto;
+    margin: 0 auto;
+  }
+
+  .slide.active {
+    display: block;
+  }
+
+  .prev, .next {
+    cursor: pointer;
+    position: absolute;
+    top: 50%;
+    padding: 12px;
+    margin-top: -22px;
+    color: white;
+    font-weight: bold;
+    font-size: 24px;
+    border: none;
+    background-color: rgba(0,0,0,0.5);
+    user-select: none;
+    border-radius: 3px;
+    z-index: 10;
+  }
+
+  .prev {
+    left: 10px;
+  }
+
+  .next {
+    right: 10px;
+  }
+</style>
+
+<script>
+  const slides = document.querySelectorAll('.slide');
+  let current = 0;
+
+  function showSlide(index) {
+    slides.forEach((slide, i) => {
+      slide.classList.toggle('active', i === index);
+    });
+  }
+
+  document.querySelector('.next').addEventListener('click', () => {
+    current = (current + 1) % slides.length;
+    showSlide(current);
+  });
+
+  document.querySelector('.prev').addEventListener('click', () => {
+    current = (current - 1 + slides.length) % slides.length;
+    showSlide(current);
+  });
+
+  showSlide(current);
+</script>
+
+
+
+  <footer>
+    <p>© 2025 Tributo a Milo J | Por Fabrizio Perrone</p>
+  </footer>
+
+  <script src="scripts.js"></script>
+</body>
+</html>
